@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#1f6f5c" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>" />
-    <title>Gastos del hogar</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/js/main.jsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gastos del hogar</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+</head>
+<body>
+<div id="auth" class="wrap" hidden><h1>Gastos del hogar</h1><div class="card"><form id="aform"><h2>Iniciar sesión</h2><label for="aemail">Correo</label><input id="aemail" type="email" autocomplete="username" required><label for="apass">Contraseña</label><input id="apass" type="password" autocomplete="current-password" required><div id="aerr" style="color:var(--bad);margin-top:8px" role="alert"></div><div class="actions" style="margin-top:12px"><button class="btn primary" style="flex:1">Entrar</button></div></form></div></div>
+<div class="wrap" id="app" hidden>
+  <div class="hdr">
+    <h1>Gastos del hogar</h1>
+    <button class="menubtn" id="menubtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+  <nav role="tablist" id="mainnav"></nav>
+  <h2 id="crumb" style="display:none"></h2>
+  <main id="view"></main>
+</div>
+<div id="scrim"></div>
+<aside id="drawer" aria-label="Menú">
+  <div class="dhead"><strong>Menú</strong><button class="menubtn" id="menuclose" type="button" aria-label="Cerrar menú">✕</button></div>
+  <div id="sync" role="status" style="color:var(--muted);font-size:14px;word-break:break-all"></div>
+  <div id="menulist"></div>
+  <button class="btn" id="logout" type="button" style="margin-top:auto">Salir</button>
+</aside>
+
+<dialog id="pdlg">
+  <form method="dialog" id="pform">
+    <h2 id="ptitle">Nuevo pago</h2>
+    <label for="psvc">Servicio o impuesto</label><input id="psvc" list="svcs" placeholder="Ej.: Luz, Agua, Predial" autocomplete="off" required><datalist id="svcs"></datalist>
+    <label for="pdesc">Descripción</label><input id="pdesc" placeholder="Ej.: Recibo de octubre" autocomplete="off">
+    <label for="pamt">Monto ($)</label><input id="pamt" type="number" min="0" step="0.01" inputmode="decimal" required>
+    <label for="pdate">Fecha de pago</label><input id="pdate" type="date" required>
+    <label for="pdue">Día del mes en que vence de nuevo (1 a 31)</label><input id="pdue" type="number" min="1" max="31" step="1" inputmode="numeric" required>
+    <div class="actions" style="margin-top:16px"><button class="btn primary" value="ok">Guardar</button><button class="btn" value="cancel" formnovalidate>Cancelar</button></div>
+  </form>
+</dialog>
+
+<script src="js/app.js"></script>
+</body>
 </html>
