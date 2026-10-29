@@ -1,0 +1,29 @@
+:root{--bg:#f6f5f1;--card:#fff;--tx:#1d1d1b;--mu:#6b6a64;--ac:#1f6f5c;--ac2:#e3f1ed;--wn:#b4541a;--wn2:#fbeadd;--er:#b3261e;--er2:#fbe3e1;--bd:#e4e2da}
+@media (prefers-color-scheme:dark){:root{--bg:#151614;--card:#201f1d;--tx:#f0efe9;--mu:#a09f97;--ac:#5fc0a8;--ac2:#1e3530;--wn:#f0a269;--wn2:#3a2a1d;--er:#f2918b;--er2:#3d1f1d;--bd:#33322e}}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+main{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 2px}
+h2{font-size:15px;margin:22px 0 8px;color:var(--mu)}
+.sub{color:var(--mu);font-size:14px;margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.nm{font-weight:600}.mu{color:var(--mu);font-size:13px}
+.amt{font-weight:700;white-space:nowrap}
+.tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap;background:var(--ac2);color:var(--ac)}
+.tag.w{background:var(--wn2);color:var(--wn)}.tag.e{background:var(--er2);color:var(--er)}
+.alert{background:var(--wn2);color:var(--wn);border-radius:12px;padding:10px 14px;margin:8px 0;font-weight:600;font-size:14px}
+.alert.e{background:var(--er2);color:var(--er)}
+.err{color:var(--er);font-size:14px;margin:10px 0 0}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
+input{width:100%;padding:11px 12px;font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:10px}
+input:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;cursor:pointer}
+.btn{width:100%;margin-top:14px;padding:13px;border:0;border-radius:12px;background:var(--ac);color:var(--bg);font-weight:700}
+.btn:disabled{opacity:.6}
+.link{background:none;border:0;color:var(--ac);font-weight:600;padding:8px 0}
+.x{background:none;border:0;color:var(--mu);font-size:20px;padding:0 4px}
+.sum{display:flex;gap:8px}.sum .card{flex:1;margin:0}.big{font-size:20px;font-weight:700}
+.empty{color:var(--mu);text-align:center;padding:14px;font-size:14px}
